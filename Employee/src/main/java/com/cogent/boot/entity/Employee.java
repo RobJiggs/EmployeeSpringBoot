@@ -7,6 +7,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+
 
 
 /**
@@ -21,7 +27,9 @@ public class Employee {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	
 	private int empID;
+	@NotBlank(message="Name cannot be blank")
 	private String empname;
+	@Size(min=2, max=15,message="Your Department Length is either too small or too big")
 	private String empDept;
 	private double salary;
 	/**
